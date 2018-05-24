@@ -14,15 +14,22 @@ let setSize = (size)=>{
     return size / defaultPixel;
 }
 
+const common = StyleSheet.create({
+
+});
+
 const home = StyleSheet.create({
-  header:{height:setSize(40), flexDirection:'row', flex:1, justifyContent:"space-around"},
+  container: {flex:1},
+  header: {height:setSize(40), flexDirection:'row', flex:1, justifyContent:"space-around"},
+  carouselImg: {width:WIDTH, height:setSize(100)},
 });
 
 const styles = {
   home,
-  WIDTH: WIDTH,
-  HEIGHT: HEIGHT,
-  setSize:setSize,
-  isIOS:isIOS,
+  common,
+  WIDTH,
+  HEIGHT,
+  setSize,
+  isIOS,
 };
 export default styles;
