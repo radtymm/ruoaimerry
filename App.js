@@ -9,6 +9,7 @@ const App = createStackNavigator({
   MyTab: {
     screen: Home,
     navigationOptions:{
+      header:null,
       headerBackTitle:null,
     }
  },
