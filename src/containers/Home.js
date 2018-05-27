@@ -23,6 +23,7 @@ export default class Home extends React.Component {
   }
 
   renderListContent(title){
+    const {navigate,goBack,state} = this.props.navigation;
     return (
       <View style={s.home.listContent}>
         <View style={s.home.listTitleView}>
@@ -43,7 +44,7 @@ export default class Home extends React.Component {
           {
             [{}, {}, {}].map((item, index)=>{
               return (
-                <RButton key={index}>
+                <RButton key={index} onPress={()=>{console.log('------');navigate('Wedding')}}>
                   <View style={s.home.listView}>
                     <Image
                       source={require('../images/icon_08.png')}
@@ -116,7 +117,7 @@ export default class Home extends React.Component {
               </RButton>
             </View>
             {this.renderListContent('婚纱摄影')}
-            {this.renderListContent('婚纱摄影')}
+            {this.renderListContent('婚宴酒店')}
           </View>
         </ScrollView>
       </View>

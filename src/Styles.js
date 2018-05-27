@@ -18,6 +18,18 @@ const common = StyleSheet.create({
   topView:{width:WIDTH, height:setSize(20), backgroundColor:'#fff',},
   pageGe:{width:WIDTH, backgroundColor:'#f0f0f0', height:setSize(10),},
   justify:{flexDirection:'row', alignItems:"center"},
+  flexCenter:{flex:1, justifyContent:"center", alignItems:"center"},
+  header: {backgroundColor:'#fff', height:setSize(45), flexDirection:'row', width:WIDTH, alignItems:"center", justifyContent:"space-between", paddingHorizontal:setSize(10)},
+  scroll:{height:(HEIGHT - setSize(65))},
+});
+
+const wedding = StyleSheet.create({
+  leftImg:{width:setSize(20), height:setSize(20), },
+  tab:{width:setSize(150), height:setSize(30), borderRadius:setSize(4), borderColor:"#f64f1b", borderWidth:1, alignItems:"center", justifyContent:"center", flexDirection:"row"},
+  tabBtn:{flex:1, justifyContent:"center", alignItems:"center"},
+  seltabBtn:{backgroundColor:"#f64f1b", flex:1, justifyContent:"center", alignItems:"center"},
+  tabBtnText:{color:"#f64f1b",},
+  seltabBtnText:{color:"#fff"},
 });
 
 const home = StyleSheet.create({
@@ -44,6 +56,7 @@ const home = StyleSheet.create({
 const styles = {
   home,
   common,
+  wedding,
   WIDTH,
   HEIGHT,
   setSize,
