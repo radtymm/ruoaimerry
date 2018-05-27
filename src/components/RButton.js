@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import s from '../Styles';
 
 export default class RButton extends React.Component {
   static defaultProps = {
     style:{}, // TouchableOpacity的样式
     styleText:{}, // text的样式
+    children:"",
     onPress:()=>{}
   }
 
@@ -22,14 +23,18 @@ export default class RButton extends React.Component {
 
   render() {
     const props = this.props;
+    console.log((typeof props.children));
+    console.log((typeof props.children == 'string'));
     return (
-      <TouchableHighlight
+      <TouchableOpacity
         onPress={()=>props.onPress()}
         style={props.style}>
         {
-          (typeof props.children == 'string') ? <Text style={props.styleText}>北京</Text> : props.children
+          (typeof props.children == 'string') ?
+          <Text style={props.styleText}>{props.children}</Text> :
+          props.children
         }
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   }
 }
