@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, Image, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, Image, View, FlatList } from 'react-native';
 import s from '../Styles';
 import RButton from '../components/RButton';
 
@@ -21,8 +21,63 @@ export default class Wedding extends React.Component {
 
   renderBusiness(){
     return (
-      <View>
-      </View>
+      <FlatList
+        data={[{}, {}, {}]}
+        extraData={this.state}
+        ItemSeparatorComponent={()=><View style={s.common.pageGe}/>}
+        keyExtractor={(item, index) => index + ''}
+        renderItem={({item, separators}) =>(
+          <RButton>
+            <View style={s.wedding.listView}>
+              <Image
+                style={s.wedding.listImage}
+                source={require('../images/icon_08.png')}
+              />
+              <View style={s.wedding.listRightView}>
+                <View style={s.wedding.areaView}>
+                  <Text style={s.wedding.shopName}>27度罗马酒店</Text>
+                  <Text style={s.wedding.area}>东城区</Text>
+                </View>
+                <View style={s.wedding.moneyView}>
+                  <Text style={s.wedding.money}>￥4988</Text>
+                  <Text style={s.wedding.moneyMore}>起</Text>
+                </View>
+              </View>
+            </View>
+          </RButton>
+        )}
+      />
+    );
+  }
+
+  renderPrice(){
+    return (
+      <FlatList
+        data={[{}, {}, {}]}
+        extraData={this.state}
+        ItemSeparatorComponent={()=><View style={s.common.pageGe}/>}
+        keyExtractor={(item, index) => index + ''}
+        renderItem={({item, separators}) =>(
+          <RButton>
+            <View style={s.wedding.listViewPrice}>
+              <Image
+                style={s.wedding.listImagePrice}
+                source={require('../images/icon_08.png')}
+              />
+              <View style={s.wedding.listRightViewPrice}>
+                <View style={s.wedding.areaView}>
+                  <Text style={s.wedding.shopName}>27度罗马酒店</Text>
+                  <Text style={s.wedding.area}>东城区</Text>
+                </View>
+                <View style={s.wedding.moneyView}>
+                  <Text style={s.wedding.money}>￥4988</Text>
+                  {/* <Text style={s.wedding.moneyMore}>起</Text> */}
+                </View>
+              </View>
+            </View>
+          </RButton>
+        )}
+      />
     );
   }
 
@@ -58,9 +113,9 @@ export default class Wedding extends React.Component {
           <View>
           </View>
         </View>
-        <ScrollView style={s.common.scroll}>
-
-        </ScrollView>
+        <View style={s.common.scroll}>
+          {tab ? this.renderPrice() : this.renderBusiness()}
+        </View>
       </View>
     );
   }

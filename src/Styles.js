@@ -21,6 +21,9 @@ const common = StyleSheet.create({
   flexCenter:{flex:1, justifyContent:"center", alignItems:"center"},
   header: {backgroundColor:'#fff', height:setSize(45), flexDirection:'row', width:WIDTH, alignItems:"center", justifyContent:"space-between", paddingHorizontal:setSize(10)},
   scroll:{height:(HEIGHT - setSize(65))},
+  leftImg:{width:setSize(20), height:setSize(20), },
+  titleView:{width:setSize(150),  alignItems:"center", justifyContent:"center", flexDirection:"row"},
+  titleText:{color:"#f64f1b", fontSize:setSize(18)},
 });
 
 const wedding = StyleSheet.create({
@@ -30,6 +33,45 @@ const wedding = StyleSheet.create({
   seltabBtn:{backgroundColor:"#f64f1b", flex:1, justifyContent:"center", alignItems:"center"},
   tabBtnText:{color:"#f64f1b",},
   seltabBtnText:{color:"#fff"},
+  listView:{backgroundColor:"#fff", width:WIDTH, height:setSize(140), padding:setSize(10), flexDirection:"row",},
+  listViewPrice:{backgroundColor:"#fff", width:WIDTH, height:setSize(306),},
+  listImage:{width:setSize(160), height:setSize(118), marginRight:setSize(10)},
+  listImagePrice:{width:WIDTH, height:setSize(250),},
+  listRightView:{justifyContent:'space-between', },
+  listRightViewPrice:{justifyContent:'space-between', padding:setSize(10), flexDirection:"row"},
+  shopName:{fontSize:setSize(16)},
+  area:{color:"#999"},
+  moneyView:{flexDirection:"row", },
+  money:{color:'#FF5800'},
+  moneyMore:{color:'#FF5800', backgroundColor:'#FFE8D7', marginLeft:setSize(3)},
+});
+
+const merchant = StyleSheet.create({
+  leftImg:{width:setSize(20), height:setSize(20), },
+  tab:{width:setSize(150),  alignItems:"center", justifyContent:"center", flexDirection:"row"},
+  tabText:{color:"#f64f1b", fontSize:setSize(18)},
+  listView:{backgroundColor:"#fff", width:WIDTH, height:setSize(140), padding:setSize(10), flexDirection:"row",},
+  listImage:{width:setSize(160), height:setSize(118), marginRight:setSize(10)},
+  listRightView:{justifyContent:'space-between', },
+  shopName:{fontSize:setSize(16)},
+  area:{color:"#999"},
+  moneyView:{flexDirection:"row", },
+  money:{color:'#FF5800'},
+  moneyMore:{color:'#FF5800', backgroundColor:'#FFE8D7', marginLeft:setSize(3)},
+});
+
+const hotelDetail = StyleSheet.create({
+  infoImg:{width:WIDTH, height:setSize(175)},
+  infoView:{padding:setSize(20), backgroundColor:"#fff"},
+  moneyView:{marginVertical:setSize(15), flexDirection:'row'},
+  moneyText:{color:"#FF859A"},
+  desk:{color:'#999'},
+  deskTotle:{marginLeft:setSize(20), color:'#999'},
+  contactView:{paddingHorizontal:setSize(20),backgroundColor:"#fff"},
+  contactList:{flexDirection:'row', alignItems:"center", height:setSize(45), borderBottomWidth:1, borderBottomColor:"#e7e7e7"},
+  contactText:{color:'#999', marginLeft:setSize(20)},
+  banquetHall:{paddingHorizontal:setSize(20), backgroundColor:"#fff"},
+  banquetHallTitle:{},
 });
 
 const home = StyleSheet.create({
@@ -56,7 +98,9 @@ const home = StyleSheet.create({
 const styles = {
   home,
   common,
+  hotelDetail,
   wedding,
+  merchant,
   WIDTH,
   HEIGHT,
   setSize,

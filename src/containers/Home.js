@@ -44,7 +44,7 @@ export default class Home extends React.Component {
           {
             [{}, {}, {}].map((item, index)=>{
               return (
-                <RButton key={index} onPress={()=>{console.log('------');navigate('Wedding')}}>
+                <RButton key={index} onPress={()=>{navigate('Merchant')}}>
                   <View style={s.home.listView}>
                     <Image
                       source={require('../images/icon_08.png')}
