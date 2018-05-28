@@ -71,7 +71,7 @@ const hotelDetail = StyleSheet.create({
   contactList:{flexDirection:'row', alignItems:"center", height:setSize(45), borderBottomWidth:1, borderBottomColor:"#e7e7e7"},
   contactText:{color:'#999', marginLeft:setSize(20)},
   banquetHall:{paddingHorizontal:setSize(20), backgroundColor:"#fff"},
-  banquetHallTitle:{},
+  banquetHallTitle:{height:setSize(40), justifyContent:'center'},
 });
 
 const home = StyleSheet.create({

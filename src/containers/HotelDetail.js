@@ -56,7 +56,18 @@ export default class HotelDetail extends React.Component {
         <View style={hotelDetail.banquetHall}>
           <Text style={hotelDetail.banquetHallTitle}>宴会厅</Text>
           <View>
-
+            <Image
+              source={require('../images/icon_08.png')}
+              style={hotelDetail.leftImg}
+            />
+            <View>
+              <Text>草坪 1F</Text>
+              <Text>3-30桌</Text>
+              <View>
+                <Text>面积1200m</Text>
+                <Text>最低消费￥0</Text>
+              </View>
+            </View>
           </View>
         </View>
       </ScrollView>
