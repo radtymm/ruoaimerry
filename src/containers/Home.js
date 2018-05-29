@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Linking } from 'react-native';
 import { Button, Carousel } from 'antd-mobile';
 import RButton from '../components/RButton';
+import fun from '../function';
 import s from '../Styles';
 
 export default class Home extends React.Component {
@@ -44,7 +45,7 @@ export default class Home extends React.Component {
           {
             [{}, {}, {}].map((item, index)=>{
               return (
-                <RButton key={index} onPress={()=>{navigate('Merchant')}}>
+                <RButton key={index} onPress={()=>{navigate('Wedding')}}>
                   <View style={s.home.listView}>
                     <Image
                       source={require('../images/icon_08.png')}
@@ -72,9 +73,9 @@ export default class Home extends React.Component {
               <Text style={s.home.topArea}>北京</Text>
             </View>
           </RButton>
-          <RButton onPress={()=>{console.log("--------");}}>
+          <RButton onPress={()=>{fun.call('10086');}}>
             <Image
-              source={require('../images/icon_08.png')}
+              source={require('../images/phone-icon.png')}
               style={s.home.phoneImg}
             />
           </RButton>

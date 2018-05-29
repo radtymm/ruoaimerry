@@ -90,7 +90,7 @@ export default class Wedding extends React.Component {
         <View style={s.common.header}>
           <RButton onPress={()=>{goBack()}}>
             <Image
-              source={require('../images/icon_08.png')}
+              source={require('../images/left-icon.png')}
               style={s.wedding.leftImg}
             />
           </RButton>
