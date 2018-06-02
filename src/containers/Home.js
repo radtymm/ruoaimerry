@@ -21,7 +21,24 @@ export default class Home extends React.Component {
         data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
       });
     }, 100);
+
+    fetch('https://app.ruoaihunli.com/2/').then((response) => {
+      if (response.ok) {
+        console.log('response');
+        console.log(response);
+        return response.json();
+      }
+    }).then((json) => {
+      console.log('json');
+      console.log(json)
+    }).catch((error) => {
+      console.log('error');
+      console.error(error);
+    });
+
   }
+
+
 
   renderListContent(title){
     const {navigate,goBack,state} = this.props.navigation;
