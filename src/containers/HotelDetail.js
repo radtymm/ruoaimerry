@@ -22,7 +22,7 @@ export default class HotelDetail extends React.Component {
 
   renderBaseInfo(){
     return (
-      <ScrollView>
+      <ScrollView style={s.common.scroll}>
         <Image
           style={s.hotelDetail.infoImg}
           source={require('../images/icon_08.png')}
@@ -53,28 +53,82 @@ export default class HotelDetail extends React.Component {
             <Text style={s.hotelDetail.contactText}>4006-808-333</Text>
           </View>
         </View>
+        <View style={s.common.pageGe}/>
         <View style={hotelDetail.banquetHall}>
-          <Text style={hotelDetail.banquetHallTitle}>宴会厅</Text>
-          <View>
+          <View style={hotelDetail.banquetHallTitle}>
+            <Text>宴会厅</Text>
+          </View>
+          <View style={hotelDetail.banquetHallView}>
             <Image
               source={require('../images/icon_08.png')}
-              style={hotelDetail.leftImg}
+              style={hotelDetail.banImg}
             />
-            <View>
+            <View style={hotelDetail.banInfoView}>
               <Text>草坪 1F</Text>
-              <Text>3-30桌</Text>
-              <View>
+              <Text style={hotelDetail.banInfoDesk}>3-30桌</Text>
+              <View style={s.common.justify}>
                 <Text>面积1200m</Text>
-                <Text>最低消费￥0</Text>
+                <Text style={hotelDetail.minMoney}>最低消费￥0</Text>
               </View>
             </View>
           </View>
         </View>
+        <View style={hotelDetail.banquetHall}>
+          <View style={hotelDetail.banquetHallView}>
+            <Image
+              source={require('../images/icon_08.png')}
+              style={hotelDetail.banImg}
+            />
+            <View style={hotelDetail.banInfoView}>
+              <Text>草坪 1F</Text>
+              <Text style={hotelDetail.banInfoDesk}>3-30桌</Text>
+              <View style={s.common.justify}>
+                <Text>面积1200m</Text>
+                <Text style={hotelDetail.minMoney}>最低消费￥0</Text>
+              </View>
+            </View>
+          </View>
+          <View style={hotelDetail.banquetHallView}>
+            <Image
+              source={require('../images/icon_08.png')}
+              style={hotelDetail.banImg}
+            />
+            <View style={hotelDetail.banInfoView}>
+              <Text>草坪 1F</Text>
+              <Text style={hotelDetail.banInfoDesk}>3-30桌</Text>
+              <View style={s.common.justify}>
+                <Text>面积1200m</Text>
+                <Text style={hotelDetail.minMoney}>最低消费￥0</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View style={s.common.pageGe}/>
+        <View style={s.common.pageGe}/>
+        <View style={hotelDetail.menuInfoView}>
+          <View style={hotelDetail.merryMenu}>
+            <Text>婚宴菜单</Text>
+          </View>
+          <View style={hotelDetail.menulist}>
+            <Text style={hotelDetail.desk}>婚宴套餐</Text>
+            <Text style={hotelDetail.desk}>￥1588/桌</Text>
+          </View>
+          <View style={hotelDetail.menulist}>
+            <Text style={hotelDetail.desk}>婚宴套餐</Text>
+            <Text style={hotelDetail.desk}>￥1588/桌</Text>
+          </View>
+        </View>
+        <RButton>
+          <View style={hotelDetail.phoneView}>
+            <Text style={hotelDetail.phoneText}>电话咨询</Text>
+          </View>
+        </RButton>
       </ScrollView>
     );
   }
 
   renderHead(){
+    const {goBack} = this.props.navigation;
     return (
       <View style={s.common.header}>
         <RButton onPress={()=>{goBack()}}>

@@ -72,6 +72,16 @@ const hotelDetail = StyleSheet.create({
   contactText:{color:'#999', marginLeft:setSize(20)},
   banquetHall:{paddingHorizontal:setSize(20), backgroundColor:"#fff"},
   banquetHallTitle:{height:setSize(40), justifyContent:'center'},
+  banquetHallView:{flexDirection:"row", borderWidth:1, borderColor:"#e7e7e7", borderRadius:setSize(4), marginBottom:setSize(10)},
+  banImg:{width:setSize(85), height:setSize(85), },
+  banInfoView:{padding:setSize(10), justifyContent:"space-between", },
+  banInfoDesk:{fontSize:setSize(12), color:"#999"},
+  minMoney:{marginLeft:setSize(30)},
+  menuInfoView:{paddingHorizontal:setSize(20), backgroundColor:"#fff"},
+  merryMenu:{justifyContent:'center', height:setSize(40)},
+  menulist:{flexDirection:"row", alignItems:"center", justifyContent:'space-between', height:setSize(40), borderTopColor:"#e7e7e7", borderTopWidth:setSize(1)},
+  phoneView:{backgroundColor:"#f65780", width:WIDTH, height:setSize(40), justifyContent:"center", alignItems:"center"},
+  phoneText:{color:"#fff"},
 });
 
 const home = StyleSheet.create({

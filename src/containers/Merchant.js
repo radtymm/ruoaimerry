@@ -27,7 +27,7 @@ export default class Merchant extends React.Component {
         ItemSeparatorComponent={()=><View style={s.common.pageGe}/>}
         keyExtractor={(item, index) => index + ''}
         renderItem={({item, separators}) =>(
-          <RButton onPress={navigate('HotelDetail')}>
+          <RButton onPress={()=>navigate('HotelDetail')}>
             <View style={s.merchant.listView}>
               <Image
                 style={s.merchant.listImage}
