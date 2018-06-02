@@ -11,5 +11,11 @@ export default fun = {
           return Linking.openURL(url);
       }
     }).catch(err => console.error('An error occurred', err));
-  }
+  },
+
+  getImgUrl:(url)=>{
+     // + '?imageView2/1/w/400/h/400/interlace/1/q/100|imageslim'
+    return 'cdn.ruoaihunli.com/' + url + '?imageView2/1/w/400/h/400/interlace/1/q/100|imageslim';
+  },
+
 };

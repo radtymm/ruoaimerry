@@ -82,7 +82,7 @@ const home = StyleSheet.create({
   phoneImg: {width:setSize(18), height:setSize(18)},
   header: {backgroundColor:'#fff', height:setSize(45), flexDirection:'row', width:WIDTH, alignItems:"center", justifyContent:"space-between", paddingHorizontal:setSize(10)},
   carouselImg: {width:WIDTH, height:setSize(186)},
-  imgLogo: {width:setSize(27), height: setSize(27),},
+  imgLogo: {width:setSize(27), height: setSize(27), resizeMode:'center'},
   contentLogo: {backgroundColor:'#fff', width:WIDTH, flexDirection:'row', justifyContent:'flex-start', paddingTop:setSize(24), },
   contentView: {width:setSize(75), height: setSize(68),justifyContent:"center", alignItems:'center'},
   listContent:{backgroundColor:"#fff", paddingHorizontal:setSize(10), marginTop:setSize(10)},
@@ -91,7 +91,7 @@ const home = StyleSheet.create({
   listView:{borderColor:"#f2f2f2", borderWidth:1, borderRadius:setSize(2), alignItems:"center", marginBottom:setSize(10)},
   listImg:{width:setSize(165), height:setSize(90)},
   oneView:{flexDirection:"row", flexWrap:'wrap', justifyContent:'space-between'},
-  textArea:{fontSize:setSize(16), color:"#777"},
+  textArea:{fontSize:setSize(16), color:"#777", width:setSize(165),},
   textMoney:{color:"#f75781"},
 });
 
