@@ -23,8 +23,6 @@ export default class RButton extends React.Component {
 
   render() {
     const props = this.props;
-    console.log((typeof props.children));
-    console.log((typeof props.children == 'string'));
     return (
       <TouchableOpacity
         onPress={()=>props.onPress()}
