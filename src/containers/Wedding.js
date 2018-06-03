@@ -16,6 +16,7 @@ export default class Wedding extends React.Component {
       tab:1,
       priceData:[],
       refreshingBusiness:false,
+      refreshingPrice:false,
       businessData:[],
     };
   }
@@ -24,11 +25,32 @@ export default class Wedding extends React.Component {
     this.reqPriceData();
   }
 
-  reqPriceData(){
-    api.homeReqUrl({}, 'photo/').then(res=>{
+  // isLoading是否是上拉加载
+  reqPriceData(isLoading){
+    let {priceData, refreshingPrice} = this.state;
+    let params = {
+      page:1
+    };
+    if (isLoading) {
+      params = {
+        page: Math.ceil(priceData.length / 6) + 1
+      }
+    }
+
+    if (refreshingPrice) { return; }
+    if (!isLoading) {this.setState({refreshingPrice:true});}
+
+    api.homeReqUrl(params, 'photo/').then(res=>{
+      if (!isLoading) {this.setState({refreshingPrice:false});}
       if (res.msg == 'ok') {
+        let newPriceData = [];
+        if (isLoading) {
+          newPriceData = priceData.concat(res.data);
+        }else {
+          newPriceData = res.data;
+        }
         this.setState({
-          priceData:res.data
+          priceData:newPriceData
         })
       }
     });
@@ -37,19 +59,21 @@ export default class Wedding extends React.Component {
   // isLoading是否是上拉加载
   reqStoresData(isLoading){
     let {businessData, refreshingBusiness} = this.state;
-    let params = {};
+    let params = {
+      page:1
+    };
     if (isLoading) {
       params = {
-        page: businessData.length / 6 + 1
+        page: Math.ceil(businessData.length / 6) + 1
       }
     }
 
     if (refreshingBusiness) { return; }
-    this.setState({refreshingBusiness:true});
+    if (!isLoading) {this.setState({refreshingBusiness:true});}
+
     api.homeReqUrl(params, 'stores/').then(res=>{
-      this.setState({refreshingBusiness:false});
+      if (!isLoading) {this.setState({refreshingBusiness:false});}
       if (res.msg == 'ok') {
-        console.log(res);
         let newBusinessData = [];
         if (isLoading) {
           newBusinessData = businessData.concat(res.data);
@@ -72,7 +96,7 @@ export default class Wedding extends React.Component {
         ItemSeparatorComponent={()=><View style={s.common.pageGe}/>}
         keyExtractor={(item, index) => index + ''}
         onEndReachedThreshold={s.isIOS?(-0.1):0.1}
-        onEndReached={(info) => {this.reqStoresData()}}
+        onEndReached={(info) => {this.reqStoresData(true)}}
         onRefresh={()=>this.reqStoresData()}
         refreshing={this.state.refreshingBusiness}
         renderItem={({item, separators}) =>(
@@ -107,6 +131,10 @@ export default class Wedding extends React.Component {
         extraData={this.state}
         ItemSeparatorComponent={()=><View style={s.common.pageGe}/>}
         keyExtractor={(item, index) => index + ''}
+        onEndReachedThreshold={s.isIOS?(-0.1):0.1}
+        onEndReached={(info) => {this.reqPriceData(true)}}
+        onRefresh={()=>this.reqPriceData()}
+        refreshing={this.state.refreshingPrice}
         renderItem={({item, separators}) =>(
           <RButton>
             <View style={s.wedding.listViewPrice}>

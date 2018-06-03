@@ -5,6 +5,7 @@ import RButton from '../components/RButton';
 import fun from '../function';
 import api from '../api';
 import s from '../Styles';
+import Citypicker from '../components/Citypicker';
 
 export default class Home extends React.Component {
 
@@ -49,6 +50,7 @@ export default class Home extends React.Component {
             />
           </View>
         </View>
+        <Citypicker/>
         <View style={s.home.oneView}>
           {
             state.photo_sec.map((item, index)=>{
