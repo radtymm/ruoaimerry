@@ -6,6 +6,7 @@ import fun from '../function';
 import api from '../api';
 import s from '../Styles';
 import Citypicker from '../components/Citypicker';
+import area from '../constants/area';
 
 export default class Home extends React.Component {
 
@@ -18,6 +19,10 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
+    this.homeReqUrl();
+  }
+
+  homeReqUrl(tail = ''){
     api.homeReqUrl().then(res=>{
       if (res.msg == 'ok') {
         this.setState({
@@ -26,10 +31,21 @@ export default class Home extends React.Component {
         })
       }
     })
-
   }
 
-
+  handleReqUrl(e){
+    this.setState({cityValue:e, visible:false});
+    area.filter(province=>{
+      if ((province.value + '') == e[0]) {
+        province.children.filter(city=>{
+          if ((city.value + '')== e[1]) {
+            this.setState({areaName:city.label, });
+          }
+        })
+      }
+    });
+    this.homeReqUrl(e[1] + '/');
+  }
 
   renderListContent(title){
     const {navigate,goBack} = this.props.navigation;
@@ -50,7 +66,6 @@ export default class Home extends React.Component {
             />
           </View>
         </View>
-        <Citypicker/>
         <View style={s.home.oneView}>
           {
             state.photo_sec.map((item, index)=>{
@@ -75,13 +90,20 @@ export default class Home extends React.Component {
 
   render() {
     const {navigate,goBack} = this.props.navigation;
+    const {state} = this;
     return (
       <View>
         <View style={s.common.topView}/>
+        <Citypicker
+          visible={state.visible}
+          value={state.cityValue}
+          onOk={(e)=>{this.handleReqUrl(e)}}
+          onDismiss={()=>{this.setState({visible:false})}}
+        />
         <View style={s.home.header}>
-          <RButton onPress={()=>{console.log("--------");}}>
+          <RButton onPress={()=>{this.setState({visible:true})}}>
             <View style={s.home.areaView}>
-              <Text style={s.home.topArea}>全国</Text>
+              <Text style={s.home.topArea}>{((state.areaName || '') == '') ? '全国' : state.areaName}</Text>
             </View>
           </RButton>
           <RButton onPress={()=>{fun.call('10086');}}>

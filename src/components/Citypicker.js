@@ -2,11 +2,13 @@ import { Picker, List } from 'antd-mobile';
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import area from '../constants/area.json';
+import RButton from './RButton';
+import s from '../Styles';
+
 area.filter(v=>{
   v.value = v.value + '';
   v.children.filter(children=>{
-    children.children = [];
-    children.value = v.value + '';
+    children.value = children.value + '';
 
   })
 })
@@ -14,7 +16,10 @@ area.filter(v=>{
 export default class Test extends React.Component {
 
   static defaultProps = {
-
+    onOk:()=>{},
+    onDismiss:()=>{},
+    visible:false,
+    value:['1', '2']
   }
 
   constructor(props){
@@ -27,22 +32,21 @@ export default class Test extends React.Component {
 
 
   render() {
-    return (<View>
-      <Text>465465465
-      </Text>
-      <List style={{ backgroundColor: 'white' }} className="picker-list">
-        <Picker extra="请选择(可选)"
-          data={area}
-          cols={2}
-          cascade={true}
-          onPickerChange={(e)=>console.log(e)}
-          title="Areas"
-          onOk={e => console.log('ok', e)}
-          onDismiss={e => console.log('dismiss', e)}
-        >
-          <List.Item arrow="horizontal">Multiple & cascader</List.Item>
-        </Picker>
-      </List>
-    </View>);
+    return (
+      <View style={{opacity:0}}>
+          <Picker extra=""
+            data={area}
+            cols={2}
+            title='地区'
+            value={this.props.value}
+            visible={this.props.visible}
+            cascade={true}
+            onOk={e => {console.log('ok', e);this.props.onOk(e)}}
+            onDismiss={e => {console.log('dismiss', e);this.props.onDismiss(e)}}
+          >
+              {this.props.children}
+          </Picker>
+      </View>
+    );
   }
 }
