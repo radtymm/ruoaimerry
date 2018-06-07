@@ -38,7 +38,8 @@ const App = createStackNavigator({
   StoreDetail: {
     screen: StoreDetail,
     navigationOptions:{
-      header:null,
+      // header:null,
+      headerTitle:'详情'
     }
   },
 }, {

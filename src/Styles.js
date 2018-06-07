@@ -27,7 +27,7 @@ const common = StyleSheet.create({
 });
 
 const wedding = StyleSheet.create({
-  leftImg:{width:setSize(20), height:setSize(20), },
+  leftImg:{width:setSize(20), height:setSize(20), resizeMode:'contain'},
   tab:{width:setSize(150), height:setSize(30), borderRadius:setSize(4), borderColor:"#f64f1b", borderWidth:1, alignItems:"center", justifyContent:"center", flexDirection:"row"},
   tabBtn:{flex:1, justifyContent:"center", alignItems:"center"},
   seltabBtn:{backgroundColor:"#f64f1b", flex:1, justifyContent:"center", alignItems:"center"},
