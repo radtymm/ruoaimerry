@@ -23,7 +23,8 @@ export default class Home extends React.Component {
   }
 
   homeReqUrl(tail = ''){
-    api.homeReqUrl().then(res=>{
+
+    api.homeReqUrl(null, tail).then(res=>{
       if (res.msg == 'ok') {
         this.setState({
           banner:res.data.banner,
@@ -59,7 +60,7 @@ export default class Home extends React.Component {
             <Text style={s.home.listTitle}>{title}</Text>
           </View>
           <View style={s.common.justify}>
-            <Text style={s.home.listTitle}>全部</Text>
+            <Text style={s.home.listTitle} onPress={()=>navigate("Wedding")}>全部</Text>
             <Image
               source={require('../images/arrowRight.png')}
               style={s.home.phoneImg}
@@ -73,10 +74,10 @@ export default class Home extends React.Component {
                 <RButton key={index} onPress={()=>{navigate('Wedding')}}>
                   <View style={s.home.listView}>
                     <Image
-                      source={{url:fun.getImgUrl(item.img)}}
+                      source={{uri:fun.getImgUrl(item.img)}}
                       style={s.home.listImg}
                     />
-                    <Text style={s.home.textArea}>{item.title}</Text>
+                    <Text style={s.home.textArea} numberOfLines={1}>{item.title}</Text>
                     <Text style={s.home.textMoney}>￥{item.price} / 桌</Text>
                   </View>
                 </RButton>
@@ -106,7 +107,7 @@ export default class Home extends React.Component {
               <Text style={s.home.topArea}>{((state.areaName || '') == '') ? '全国' : state.areaName}</Text>
             </View>
           </RButton>
-          <RButton onPress={()=>{fun.call('10086');}}>
+          <RButton onPress={()=>{fun.call('15611889944');}}>
             <Image
               source={require('../images/phone-icon.png')}
               style={s.home.phoneImg}

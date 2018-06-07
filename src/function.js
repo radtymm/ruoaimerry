@@ -15,7 +15,7 @@ export default fun = {
 
   getImgUrl:(url)=>{
      // + '?imageView2/1/w/400/h/400/interlace/1/q/100|imageslim'
-    return 'cdn.ruoaihunli.com/' + url + '?imageView2/1/w/400/h/400/interlace/1/q/100|imageslim';
+    return 'http://cdn.ruoaihunli.com/' + url ;
   },
 
 };

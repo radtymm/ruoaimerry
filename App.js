@@ -5,6 +5,7 @@ import Home from './src/containers/Home.js';
 import Wedding from './src/containers/Wedding.js';
 import Merchant from './src/containers/Merchant.js';
 import HotelDetail from './src/containers/HotelDetail.js';
+import StoreDetail from './src/containers/StoreDetail.js';
 import { createStackNavigator } from 'react-navigation';
 
 const App = createStackNavigator({
@@ -30,6 +31,12 @@ const App = createStackNavigator({
   },
   HotelDetail: {
     screen: HotelDetail,
+    navigationOptions:{
+      header:null,
+    }
+  },
+  StoreDetail: {
+    screen: StoreDetail,
     navigationOptions:{
       header:null,
     }

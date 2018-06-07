@@ -21,7 +21,7 @@ const common = StyleSheet.create({
   flexCenter:{flex:1, justifyContent:"center", alignItems:"center"},
   header: {backgroundColor:'#fff', height:setSize(45), flexDirection:'row', width:WIDTH, alignItems:"center", justifyContent:"space-between", paddingHorizontal:setSize(10)},
   scroll:{height:(HEIGHT - setSize(65))},
-  leftImg:{width:setSize(20), height:setSize(20), },
+  leftImg:{width:setSize(20), height:setSize(20), resizeMode:'contain'},
   titleView:{width:setSize(150),  alignItems:"center", justifyContent:"center", flexDirection:"row"},
   titleText:{color:"#f64f1b", fontSize:setSize(18)},
 });
@@ -88,8 +88,8 @@ const home = StyleSheet.create({
   container: {flex:1},
   scroll:{height:(HEIGHT - setSize(65))},
   topArea: {color:'#f96500', marginRight:setSize(5), fontSize:setSize(14)},
-  areaView: {flex:1, width:setSize(45), justifyContent:"center",},
-  phoneImg: {width:setSize(18), height:setSize(18)},
+  areaView: {flex:1, width:setSize(100), justifyContent:"center",},
+  phoneImg: {width:setSize(18), height:setSize(18), resizeMode:'contain'},
   header: {backgroundColor:'#fff', height:setSize(45), flexDirection:'row', width:WIDTH, alignItems:"center", justifyContent:"space-between", paddingHorizontal:setSize(10)},
   carouselImg: {width:WIDTH, height:setSize(186)},
   imgLogo: {width:setSize(27), height: setSize(27), resizeMode:'center'},
@@ -101,8 +101,26 @@ const home = StyleSheet.create({
   listView:{borderColor:"#f2f2f2", borderWidth:1, borderRadius:setSize(2), alignItems:"center", marginBottom:setSize(10)},
   listImg:{width:setSize(165), height:setSize(90)},
   oneView:{flexDirection:"row", flexWrap:'wrap', justifyContent:'space-between'},
-  textArea:{fontSize:setSize(16), color:"#777", width:setSize(165),},
-  textMoney:{color:"#f75781"},
+  textArea:{fontSize:setSize(16), color:"#777", width:setSize(165), marginTop:setSize(10), justifyContent:'center'},
+  textMoney:{color:"#f75781", marginBottom:setSize(10)},
+});
+
+const storeDetail = StyleSheet.create({
+  scroll:{backgroundColor:"#fff", height:setSize(HEIGHT - 45)},
+  imgFirst:{width:setSize(375), height:setSize(290)},
+  imgList:{width:setSize(108), height:setSize(80), margin:setSize(5)},
+  title:{paddingLeft:setSize(10), fontSize:setSize(24), marginTop:setSize(20), marginBottom:setSize(20), fontWeight:'bold', color:"#333"},
+  moneyView:{paddingLeft:setSize(10), flexDirection:'row', alignItems:"flex-end", marginBottom:setSize(40)},
+  moneySymbol:{fontSize:setSize(24), color:'#F83244'},
+  moneyDiscount:{fontSize:setSize(40), color:'#F83244'},
+  moneyPrice:{fontSize: setSize(12), color: '#999', marginLeft: setSize(16), textDecorationLine: 'line-through'},
+  detailLine:{width:WIDTH, borderColor:"#FA9A7B", borderBottomWidth:1, backgroundColor:"#FBFAFC", marginBottom:setSize(18)},
+  detailView:{height:setSize(45), width:setSize(90), borderColor:"#FA9A7B", borderRightWidth:1, borderTopWidth:3, alignItems:"center", justifyContent:"center"},
+  consultView:{height:setSize(45), width:WIDTH, flexDirection:"row"},
+  consultOnline:{flex:1, backgroundColor:"#FF7D48", alignItems:"center", justifyContent:"center"},
+  consultPhone:{flex:1, backgroundColor:"#372B2B", alignItems:"center", justifyContent:"center"},
+  consultText:{color:"#fff", fontSize:setSize(18)},
+  webView:{width:WIDTH, height:'auto', backgroundColor:"#fff", height:setSize(300)}
 });
 
 const styles = {
@@ -111,6 +129,7 @@ const styles = {
   hotelDetail,
   wedding,
   merchant,
+  storeDetail,
   WIDTH,
   HEIGHT,
   setSize,

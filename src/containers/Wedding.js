@@ -89,6 +89,7 @@ export default class Wedding extends React.Component {
 
   renderBusiness(){
     const {businessData} = this.state;
+    const {navigate} = this.props.navigation;
     return (
       <FlatList
         data={businessData}
@@ -100,7 +101,7 @@ export default class Wedding extends React.Component {
         onRefresh={()=>this.reqStoresData()}
         refreshing={this.state.refreshingBusiness}
         renderItem={({item, separators}) =>(
-          <RButton>
+          <RButton onPress={()=>navigate('StoreDetail', {id: item.store_id})}>
             <View style={s.wedding.listView}>
               <Image
                 style={s.wedding.listImage}
@@ -108,8 +109,8 @@ export default class Wedding extends React.Component {
               />
               <View style={s.wedding.listRightView}>
                 <View style={s.wedding.areaView}>
-                  <Text style={s.wedding.shopName}>{item.store_name}</Text>
-                  <Text style={s.wedding.area}>{item.store_address}</Text>
+                  <Text style={s.wedding.shopName} numberOfLines={1}>{item.store_name}</Text>
+                  <Text style={s.wedding.area} numberOfLines={1}>{item.store_address}</Text>
                 </View>
                 <View style={s.wedding.moneyView}>
                   <Text style={s.wedding.money}>￥{item.store_lowprice}</Text>
@@ -125,6 +126,7 @@ export default class Wedding extends React.Component {
 
   renderPrice(){
     const priceData = this.state.priceData;
+    const {navigate} = this.props.navigation;
     return (
       <FlatList
         data={priceData}
@@ -136,7 +138,7 @@ export default class Wedding extends React.Component {
         onRefresh={()=>this.reqPriceData()}
         refreshing={this.state.refreshingPrice}
         renderItem={({item, separators}) =>(
-          <RButton>
+          <RButton onPress={()=>navigate('StoreDetail', {id: item.item_id})}>
             <View style={s.wedding.listViewPrice}>
               <Image
                 style={s.wedding.listImagePrice}
@@ -144,8 +146,8 @@ export default class Wedding extends React.Component {
               />
               <View style={s.wedding.listRightViewPrice}>
                 <View style={s.wedding.areaView}>
-                  <Text style={s.wedding.shopName}>{item.item_title}</Text>
-                  <Text style={s.wedding.area}>{item.store_name}</Text>
+                  <Text style={s.wedding.shopName} numberOfLines={1}>{item.item_title}</Text>
+                  <Text style={s.wedding.area} numberOfLines={1}>{item.store_name}</Text>
                 </View>
                 <View style={s.wedding.moneyView}>
                   <Text style={s.wedding.money}>￥{item.item_price}</Text>
